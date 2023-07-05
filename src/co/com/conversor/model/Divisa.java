@@ -17,7 +17,7 @@ public class Divisa {
 	private final String op8 = "De Libras Esterlinas a pesos";
 	private final String op9 = "De Yen Japonés a pesos";
 	private final String op10 = "De Won sul-coreanoa a pesos ";
-	private String[] opciones = { op1, op2, op3, op4, op5, op6, op7, op8, op9, op10,};
+	private String[] opciones = { op1, op2, op3, op4, op5, op6, op7, op8, op9, op10};
 	
 	private String opcion;
 

@@ -22,8 +22,8 @@ public class Conversor {
 				double valor = Double.parseDouble(JOptionPane.showInputDialog("Ingresa la cantidad que deseas convertir"));
 				divisa.convertir(valor);
 			} else {
-				JOptionPane.showInputDialog("Ingresa el valor de la temperatura que desea convertir");
-				temperatura.convertirTemperatura();
+				double valor = Double.parseDouble(JOptionPane.showInputDialog("Ingresa el valor de la temperatura que desea convertir"));
+				temperatura.convertirTemperatura(valor);
 			}
 		} catch (Exception e) {
 			
