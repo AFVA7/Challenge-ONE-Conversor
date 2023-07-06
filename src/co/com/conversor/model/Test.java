@@ -11,11 +11,16 @@ public class Test {
 		Conversor conversor = new Conversor();
 
 		do {
-			conversor.empezar();
+			try {
+				conversor.empezar();
+			} catch (Exception e) {
+				break;
+			}
 			numero = JOptionPane.showConfirmDialog(null, "¿Desea continuar?");
 		} while (numero == 0);
 
-		JOptionPane.showMessageDialog(null, "Programa terminado");
+		Conversor.terminar();
+		
 
 	}
 }

@@ -12,23 +12,44 @@ public class Conversor {
 	Divisa divisa = new Divisa();
 	private String opcion;
 	Temperatura temperatura = new Temperatura();
-	int numero;
+	String input;
+	double valor;
 
-	public void empezar(){
-		try {
-			opcion = (JOptionPane.showInputDialog(null, msg, titulo, JOptionPane.PLAIN_MESSAGE, null, opciones, op1))
-					.toString();
-			if (opcion.equals(op1)) {
-				double valor = Double.parseDouble(JOptionPane.showInputDialog("Ingresa la cantidad que deseas convertir"));
-				divisa.convertir(valor);
-			} else {
-				double valor = Double.parseDouble(JOptionPane.showInputDialog("Ingresa el valor de la temperatura que desea convertir"));
-				temperatura.convertirTemperatura(valor);
-			}
-		} catch (Exception e) {
-			
+	public static void terminar() {
+		JOptionPane.showMessageDialog(null, "Programa terminado");
+	}
+
+	public void empezar() {
+
+		opcion = (JOptionPane.showInputDialog(null, msg, titulo, JOptionPane.PLAIN_MESSAGE, null, opciones, op1))
+				.toString();
+
+		if (opcion.equals(op1)) {
+			valor = capturarCantidad("Ingresa la cantidad que deseas convertir");
+			divisa.convertir(valor);
+		} else {
+			valor = capturarCantidad("Ingresa el valor de la temperatura que desea convertir");
+			temperatura.convertirTemperatura(valor);
 		}
-		
-		
+	}
+
+	private double capturarCantidad(String msg) {
+		while (true) {
+			input = JOptionPane.showInputDialog(msg);
+			if(input==null) {
+				empezar();
+			}
+			if (input.equals("")) {
+				JOptionPane.showMessageDialog(null, "Ingresa un valor.");
+				capturarCantidad(msg);
+			}
+			try {
+				valor = Double.parseDouble(input);
+				break;
+			} catch (NumberFormatException e) {
+				JOptionPane.showMessageDialog(null, "Ingresa un valor numérico válido.");
+			}
+		}
+		return valor;
 	}
 }
